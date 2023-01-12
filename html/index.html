@@ -433,34 +433,37 @@
 
     <script>
       // 찾아서 이벤트 걸고 제어하면 된다.
-      // vanilla script
+      // vanilla script   jQuery
       const btnAll = document.querySelector(".btn--all");
       const header = document.querySelector(".header");
       const depth01 = document.querySelectorAll(".gnb .gnb__list > li > a");
-      console.log("🚀 ~ file: index.html:381 ~ depth01", depth01);
       const depth02 = document.querySelectorAll(".gnb .gnb__list > li > .gnb__list--sub");
-      console.log("🚀 ~ file: index.html:442 ~ depth02", depth02)
-      const total =depth01;length;
-      console.log("🚀 ~ file: index.html:443 ~ total", total)
-      //if()
-      
-      for (let i=0;i<6;i++) {
+      const total = depth01.length;
+      for (let i = 0; i < total; i++) {
         depth01[i].addEventListener("click", function (e) {
           e.preventDefault();
-          //depth02[0].classList.remove("on");
-          //depth02[1].classList.remove("on");
-          //depth02[2].classList.remove("on");
-          //depth02[3].classList.remove("on");
-          //depth02[4].classList.remove("on");
-          //depth02[5].classList.remove("on");
-          for(let j=0;j<6;j++) {
-            if(i !== j)
-            depth02[j].classList.remove("on");
+          // depth02[0].classList.remove("on");
+          // depth02[1].classList.remove("on");
+          // depth02[2].classList.remove("on");
+          // depth02[3].classList.remove("on");
+          // depth02[4].classList.remove("on");
+          // depth02[5].classList.remove("on");
+          for (let j = 0; j < total; j++) {
+            if (i !== j) {
+              depth02[j].classList.remove("on");
+            }
           }
           depth02[i].classList.toggle("on");
-          //depth02.classList.toggle("on");
         });
       }
+
+      // for (let i = 0; i < 6; i++) {
+      //   depth01[i].addEventListener("click", function (e) {
+      //     e.preventDefault();
+      //     //depth02.classList.toggle("on");
+      //     console.log(i);
+      //   });
+      // }
 
       // depth01.addEventListener("click", function (e) {
       //   e.preventDefault();
@@ -481,6 +484,10 @@
         } else {
           header.classList.add("on");
         }
+        //header.classList.toggle("on");
+        //console.log(isContains);
+        //header.classList.add("on");
+        //header.classList.remove("on");
       });
     </script>
   </body>
