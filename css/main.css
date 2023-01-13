@@ -1,7 +1,7 @@
 .container {
   width: 100%;
   margin: 0 auto;
-  padding: 0 30px;
+  padding: 0 20px;
   box-sizing: border-box;
 }
 
@@ -12,6 +12,9 @@
 .section .container {
   min-height: 300px;
 }
+.section .container .title-box {
+  margin-bottom: 50px;
+}
 .section .container .title-box h2 {
   font-size: clamp(24px, 7.5vw, 36px);
   font-weight: 700;
@@ -20,7 +23,7 @@
 .section .container .title-box p {
   font-size: clamp(14px, 3.5vw, 24px);
   font-size: 24px;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 .section .container .title-box a {
   font-size: 18px;
@@ -123,11 +126,11 @@
 .tech .container .icon-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px 0;
+  gap: 20px;
 }
 .tech .container .icon-list li {
-  width: 33.3333333333%;
-  padding: 0 15px;
+  width: calc((100% - 40px) / 3);
+  padding: 0;
   box-sizing: border-box;
   text-align: center;
 }
@@ -144,10 +147,7 @@
 }
 .block-chain .container {
   display: flex;
-  justify-content: space-between;
-}
-.block-chain .container .title-box {
-  width: 45%;
+  flex-direction: column;
 }
 .block-chain .container .title-box h2 {
   white-space: nowrap;
@@ -155,21 +155,18 @@
 .block-chain .container .title-box a:after {
   color: #297bf6;
 }
-.block-chain .container .contents {
-  width: 55%;
-  padding-top: 100px;
-}
 .block-chain .container .contents .block-chain__list {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 20px 0;
 }
 .block-chain .container .contents .block-chain__list > li {
-  width: calc(50% - 15px);
+  width: 100%;
   padding: 30px;
   box-sizing: border-box;
   background-color: rgba(255, 255, 255, 0.15);
-  border-radius: 30px;
+  border-radius: 10px;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
 }
 .block-chain .container .contents .block-chain__list > li .title {
@@ -177,11 +174,11 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #fff;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
 }
 .block-chain .container .contents .block-chain__list > li .title h3 {
-  font-size: 20px;
+  font-size: 18px;
   text-transform: uppercase;
 }
 .block-chain .container .contents .block-chain__list > li .title span {
@@ -198,8 +195,11 @@
 .block-chain .container .contents .block-chain__list > li:nth-child(1) .title span:after {
   display: none;
 }
+.block-chain .container .contents .block-chain__list > li ul {
+  font-size: 14px;
+}
 .block-chain .container .contents .block-chain__list > li ul li {
-  margin-top: 20px;
+  margin-top: 10px;
 }
 .block-chain .container .contents .block-chain__list > li ul li a {
   display: block;
@@ -245,22 +245,22 @@
   content: "";
   display: block;
   position: absolute;
-  top: -120px;
+  top: -50px;
   left: 0;
-  width: 25%;
+  width: 80px;
   height: 710px;
-  z-index: 999;
+  z-index: 3;
   background: linear-gradient(to right, #fff 25%, rgba(255, 255, 255, 0) 100%);
 }
 .platform .container:after {
   content: "";
   display: block;
   position: absolute;
-  top: -120px;
+  top: -50px;
   right: 0;
-  width: 25%;
+  width: 80px;
   height: 710px;
-  z-index: 999;
+  z-index: 3;
   background: linear-gradient(to left, #fff 25%, rgba(255, 255, 255, 0) 100%);
 }
 .platform .title-box {
@@ -272,16 +272,34 @@
 .platform .platform-swiper {
   position: relative;
 }
+.platform .platform-swiper .pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+.platform .platform-swiper .pagination .swiper-pagination-bullet {
+  opacity: 1;
+  width: 10px;
+  height: 10px;
+  border: 2px solid #333;
+  background: none;
+  border-radius: 50px;
+  transition: all 0.25s ease;
+}
+.platform .platform-swiper .pagination .swiper-pagination-bullet-active {
+  background-color: #333;
+  width: 30px;
+}
 .platform .platform-list li {
-  width: 300px;
+  width: 200px;
   position: relative;
 }
 .platform .platform-list li:hover img {
   transform: scale(1.25);
 }
 .platform .platform-list li .img-box {
-  width: 300px;
-  height: 300px;
+  width: 100%;
+  aspect-ratio: 1/1;
   overflow: hidden;
   border-radius: 50%;
 }
@@ -296,13 +314,14 @@
   position: absolute;
   background-color: #297bf6;
   color: #fff;
-  padding: 8px 17px;
+  padding: 10px 30px;
   border-radius: 100px;
   text-transform: uppercase;
   overflow: hidden;
   text-shadow: 1px 1px 0px #074bb2,2px 2px 0px #074bb2,3px 3px 0px #074bb2,4px 4px 0px #074bb2,5px 5px 0px #074bb2,6px 6px 0px #074bb2,7px 7px 0px #074bb2,8px 8px 0px #074bb2,9px 9px 0px #074bb2,10px 10px 0px #074bb2,11px 11px 0px #074bb2,12px 12px 0px #074bb2,13px 13px 0px #074bb2,14px 14px 0px #074bb2,15px 15px 0px #074bb2,16px 16px 0px #074bb2,17px 17px 0px #074bb2,18px 18px 0px #074bb2,19px 19px 0px #074bb2,20px 20px 0px #074bb2;
-  top: 35px;
-  left: 60%;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
   white-space: nowrap;
 }
 .platform .platform-list li .title {
@@ -313,36 +332,39 @@
 }
 .platform .btn {
   position: absolute;
-  width: 80px;
-  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
   background-color: #fff;
   border-radius: 50%;
   border: 1px solid #ccc;
   top: 45%;
   transform: translateY(-55%);
-  z-index: 999999;
+  z-index: 999999999;
 }
 .platform .btn--prev {
-  left: 50px;
+  left: 0px;
   color: #297bf6;
   border-color: #fff;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
 }
 .platform .btn--prev:after {
-  font-size: 48px;
+  font-size: 24px;
   display: inline-block;
   content: "chevron_left";
   margin-left: 0;
   font-family: "Material Icons";
 }
 .platform .btn--next {
-  right: 50px;
+  right: 0px;
   color: #297bf6;
   border-color: #fff;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
 }
 .platform .btn--next:after {
-  font-size: 48px;
+  font-size: 24px;
   display: inline-block;
   content: "chevron_right";
   margin-left: 0;
@@ -358,7 +380,7 @@
 
 .partner .container {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
 }
 .partner .container .title-box h2 {
   color: #297bf6;
@@ -367,9 +389,9 @@
   color: #297bf6;
 }
 .partner .container img {
-  width: 800px;
-  height: 520px;
-  border-radius: 50px;
+  width: 100%;
+  aspect-ratio: 2/1;
+  border-radius: 20px;
   -o-object-fit: cover;
      object-fit: cover;
   background-size: cover;

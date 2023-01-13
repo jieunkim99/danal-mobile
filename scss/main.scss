@@ -4,7 +4,7 @@
 .container {
   width: 100%;
   margin: 0 auto;
-  padding: 0 30px;
+  padding: 0 20px;
   box-sizing: border-box;
 }
 .section {
@@ -13,6 +13,7 @@
   .container {
     min-height: 300px;
     .title-box {
+      margin-bottom: 50px;
       h2 {
         font-size: clamp(24px, 7.5vw, 36px);
         font-weight: 700;
@@ -21,7 +22,7 @@
       p {
         font-size: clamp(14px, 3.5vw, 24px);
         font-size: 24px;
-        margin-bottom: 100px;
+        margin-bottom: 50px;
       }
       a {
         font-size: 18px;
@@ -118,10 +119,12 @@
     .icon-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 30px 0;
+      gap: 20px;
       li {
-        width: (100% / 3);
-        padding: 0 15px;
+        width: calc(
+          (100% - 40px) / 3
+        ); // %와 px 연산을 할때 잘 안되면 calc()를 쓰면 된다.
+        padding: 0;
         box-sizing: border-box;
         text-align: center;
         img {
@@ -139,9 +142,8 @@
   color: #fff;
   .container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     .title-box {
-      width: 45%;
       h2 {
         white-space: nowrap;
       }
@@ -150,18 +152,17 @@
       }
     }
     .contents {
-      width: 55%;
-      padding-top: 100px;
       .block-chain__list {
         display: flex;
+        flex-direction: column;
         flex-wrap: wrap;
-        gap: 30px;
+        gap: 20px 0;
         > li {
-          width: calc(50% - 15px);
+          width: 100%;
           padding: 30px;
           box-sizing: border-box;
           background-color: rgba(255, 255, 255, 0.15);
-          border-radius: 30px;
+          border-radius: 10px;
           box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
           .title {
             display: flex;
@@ -169,10 +170,10 @@
             //font-size: 20px;
             align-items: center;
             border-bottom: 1px solid #fff;
-            padding-bottom: 20px;
-            margin-bottom: 20px;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
             h3 {
-              font-size: 20px;
+              font-size: 18px;
               text-transform: uppercase;
             }
             span {
@@ -188,8 +189,9 @@
             display: none;
           }
           ul {
+            font-size: 14px;
             li {
-              margin-top: 20px;
+              margin-top: 10px;
               a {
                 display: block;
                 white-space: nowrap;
@@ -238,11 +240,11 @@
       content: "";
       display: block;
       position: absolute;
-      top: -120px;
+      top: -50px;
       left: 0;
-      width: 25%;
+      width: 80px;
       height: 710px;
-      z-index: 999;
+      z-index: 3;
       background: linear-gradient(
         to right,
         #fff 25%,
@@ -253,11 +255,11 @@
       content: "";
       display: block;
       position: absolute;
-      top: -120px;
+      top: -50px;
       right: 0;
-      width: 25%;
+      width: 80px;
       height: 710px;
-      z-index: 999;
+      z-index: 3;
       background: linear-gradient(
         to left,
         #fff 25%,
@@ -273,10 +275,28 @@
   }
   .platform-swiper {
     position: relative;
+    .pagination {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+      .swiper-pagination-bullet {
+        opacity: 1;
+        width: 10px;
+        height: 10px;
+        border: 2px solid #333;
+        background: none;
+        border-radius: 50px;
+        transition: all 0.25s ease;
+        &-active {
+          background-color: #333;
+          width: 30px;
+        }
+      }
+    }
   }
   .platform-list {
     li {
-      width: 300px;
+      width: 200px;
       position: relative;
       &:hover {
         img {
@@ -284,8 +304,8 @@
         }
       }
       .img-box {
-        width: 300px;
-        height: 300px;
+        width: 100%;
+        aspect-ratio: 1 / 1;
         overflow: hidden;
         border-radius: 50%;
         img {
@@ -299,13 +319,14 @@
         position: absolute;
         background-color: $blue;
         color: #fff;
-        padding: 8px 17px;
+        padding: 10px 30px;
         border-radius: 100px;
         text-transform: uppercase;
         overflow: hidden;
         @include longShadow(20, darken($blue, 20));
-        top: 35px;
-        left: 60%;
+        top: 50px;
+        left: 50%;
+        transform: translateX(-50%);
         white-space: nowrap;
       }
       .title {
@@ -318,31 +339,34 @@
   }
   .btn {
     position: absolute;
-    width: 80px;
-    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
     background-color: #fff;
     border-radius: 50%;
     border: 1px solid #ccc;
     top: 45%;
     transform: translateY(-55%);
-    z-index: 999999;
+    z-index: 999999999;
     &--prev {
-      left: 50px;
+      left: 0px;
       color: $blue;
       border-color: #fff;
       box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
       &:after {
-        font-size: 48px;
+        font-size: 24px;
         @include icon("chevron_left", 0);
       }
     }
     &--next {
-      right: 50px;
+      right: 0px;
       color: $blue;
       border-color: #fff;
       box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
       &:after {
-        font-size: 48px;
+        font-size: 24px;
         @include icon("chevron_right", 0);
       }
     }
@@ -357,7 +381,7 @@
 .partner {
   .container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     .title-box {
       h2 {
         color: $blue;
@@ -367,9 +391,9 @@
       }
     }
     img {
-      width: 800px;
-      height: 520px;
-      border-radius: 50px;
+      width: 100%;
+      aspect-ratio: 2 / 1;
+      border-radius: 20px;
       object-fit: cover;
       background-size: cover;
     }
